@@ -1,0 +1,34 @@
+CREATE TABLE books (
+	id INTEGER PRIMARY KEY,
+	bookname TEXT NOT NULL,
+	author TEXT NOT NULL,
+	parution_date INTEGER
+);
+
+INSERT INTO books (bookname, author, parution_date)
+SELECT 'Le Deuxième Sexe', 'Simone de Beauvoir', 1949
+UNION SELECT 'Une chambre à soi', 'Virginia Woolf', 1929
+UNION SELECT 'Le rire de la Méduse', 'Hélène Cixous', 1975
+UNION SELECT 'La cloche de détresse', 'Sylvia Plath', 1963
+UNION SELECT 'Sorcières : La puissance invaincue des femmes', 'Mona Chollet', 2018
+UNION SELECT 'Les Argonautes', ' Maggie Nelson', 2015
+UNION SELECT 'Nous sommes tous des féministes', 'Chimamanda Ngozi Adichie', 2014
+UNION SELECT 'L''Amie prodigieuse', 'Elena Ferrante', 2011
+UNION SELECT 'Futur-es', 'Lauren Bastide', 2022
+UNION SELECT 'King Kong Théorie', 'Virginie Despentes', 2006
+UNION SELECT 'La Femme rompue', 'Simone de Beauvoir', 1967
+UNION SELECT 'La Vieillesse', 'Simone de Beauvoir', 1970;
+
+
+1. Liste toutes les lignes de la table
+SELECT * FROM books;
+2. Liste uniquement les 5 premières lignes de la table
+SELECT * FROM books LIMIT 5;
+3. Liste uniquement le nom du livre et sa date de parution. Le résultat doit être ordonné par date de parution : du plus ancien au plus récent
+SELECT bookname, parution_date FROM books ORDER BY parution_date ASC;
+4. Liste tous les livres dont l’autrice est `Simone de Beauvoir`
+SELECT * FROM books WHERE author = 'Simone de Beauvoir';
+5. Liste uniquement le nom des livres dont l’autrice est `Simone de Beauvoir` et dont la date de parution est après 1950
+SELECT bookname FROM books WHERE auteur = 'Simone de Beauvoir' AND parution_date > 1950;
+6. Affiche le nombre de livres listés dans la table
+SELECT COUNT(*) AS id FROM books;
